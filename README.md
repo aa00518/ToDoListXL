@@ -1,3 +1,13 @@
+ng serve --open
+
+ng build -prod
+
+(firebase init -> dist -> no)
+
+firebase deploy
+
+
+
 # Todolistxl
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.0.
