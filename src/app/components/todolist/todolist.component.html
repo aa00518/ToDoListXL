@@ -1,18 +1,18 @@
 <div class="container-fluid">
   <div class="row justify-content-center">
-    <h2>To Do List XL</h2>
+    <h6>To Do's</h6>
   </div>
   <div class="row justify-content-center mb-2">
     <div class="form-inline">
-      <input type="text" class="form-control form-control-sm mr-2" style="width: 300px;" placeholder="Add To Do Item" [(ngModel)]="todoItem">
+      <input type="text" class="form-control form-control-sm mr-2" style="width: 200px;" placeholder="Add To Do Item" [(ngModel)]="todoItem">
       <button type="button" class="btn btn-sm btn-primary" (click)="doInsert()">Add</button>
     </div>
   </div>
   <div *ngFor="let snap of snapshot | async" class="row mb-2">
-    <div class="col-10">
+    <div class="col-8">
       {{ snap.payload.doc._document.data.internalValue.root.value }}
     </div>
-    <div class="col-2">
+    <div class="col-4">
       <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal" (click)="doDeleteModal(snap.payload.doc.id, snap.payload.doc._document.data.internalValue.root.value)"><i class="fa fa-trash-o"></i> Del</button>
     </div>  
   </div>
@@ -34,7 +34,7 @@
       <button type="button" class="btn btn-sm btn-primary"><i class="fa fa-cog"></i> Settings</button>
     </div>
     <div class="col">
-        <button type="button" class="btn btn-sm btn-success"><i class="fa fa-flag"></i> Font Awesome</button>
+        <button type="button" class="btn btn-sm btn-success"><i class="fa fa-flag"></i> Font A</button>
     </div>
   </div>
   <div class="row mb-2">

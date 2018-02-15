@@ -1,11 +1,16 @@
 ng serve --open
 
-ng build -prod
+ng build --prod
 
 (firebase init -> dist -> no)
 
 firebase deploy
 
+
+https://blog.angular-university.io/angular-service-worker/
+npm install -g http-server
+cd dist
+http-server -c-1 .
 
 
 # Todolistxl

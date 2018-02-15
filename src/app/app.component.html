@@ -1,21 +1,24 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <a class="navbar-brand" href="">To Do List XL</a>
+  <button class="navbar-toggler" type="button" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleMenuState()">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse" [ngClass]="{ 'show' : isMenuExpanded }">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Settings</a>
-      <a class="nav-item nav-link" href="#">About</a>
+      <a class="nav-item nav-link" routerLink="/todolist" (click)="toggleMenuState()">To Do List</a>
+      <a class="nav-item nav-link" routerLink="/reddits" (click)="toggleMenuState()">Reddits</a>
+      <a class="nav-item nav-link" routerLink="/settings" (click)="toggleMenuState()">Settings</a>
+      <a class="nav-item nav-link" routerLink="/about" (click)="toggleMenuState()">About</a>
+      <!--
       <form class="form-inline justify-content-right my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
+    -->
     </div>
   </div>
 </nav>
 
 <div class="container" style="padding-top: 60px;">
-  <app-todolist></app-todolist>
+  <router-outlet></router-outlet>
 </div>

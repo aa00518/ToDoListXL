@@ -46,6 +46,9 @@ export class TodolistComponent implements OnInit {
     setTimeout(() => {
       this.savingChanges = false;
       this.changesSaved = true;
+      setTimeout(() => {
+        this.changesSaved = false;
+      }, 3000);
     }, 1000);
   }
 }
