@@ -9,7 +9,7 @@ export class RedditsService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getPosts(category, limit): Observable<any[]> {
-    return this.httpClient.get<any[]>(`${ this.REDDITS_BASE_URL + '/' + category + '/top.json?limit=' + limit }`);
+  getPosts(category, limit): Observable<any> {
+    return this.httpClient.get<any>(`${ this.REDDITS_BASE_URL + '/' + category + '/top.json?limit=' + limit }`);
   }
 }

@@ -7,7 +7,7 @@ import { RedditsService } from '../../services/reddits.service';
   styleUrls: ['./reddits.component.css']
 })
 export class RedditsComponent implements OnInit {
-  public reddits: any[];
+  public reddits: any;
 
   constructor(private rs: RedditsService) { }
 
