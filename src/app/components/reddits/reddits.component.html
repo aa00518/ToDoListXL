@@ -2,4 +2,12 @@
   <div class="row justify-content-center">
     <h6>Reddits</h6>
   </div>
+  <div *ngFor="let reddit of reddits.data.children" class="row">
+    <span style="font-size: small;">{{ reddit.data.title }}</span>
+    <img *ngIf="reddit.data.thumbnail" src="{{ reddit.data.thumbnail }}" class="rounded float-left">
+    <p style="font-size:small;">
+      Score {{ reddit.data.score }}&nbsp;&nbsp;&nbsp;Comments {{ reddit.data.num_comments }}
+    </p>
+    <button type="button" class="btn btn-sm btn-primary">View</button>
+  </div>
 </div>

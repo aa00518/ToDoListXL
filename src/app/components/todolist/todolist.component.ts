@@ -7,8 +7,6 @@ import { TodolistService } from '../../services/todolist.service';
   styleUrls: ['./todolist.component.css']
 })
 export class TodolistComponent implements OnInit {
-  public savingChanges: boolean = false;
-  public changesSaved: boolean = false;
   public todoItem: string = "";
   public snapshot: any;
   public deleteID: string;
@@ -35,20 +33,5 @@ export class TodolistComponent implements OnInit {
 
   doDelete() {
     this.toDoList.deleteToDoListItem(this.deleteID);
-  }
-
-  modalClick() {
-    this.changesSaved = false;
-  }
-
-  doSaveChanges() {
-    this.savingChanges = true;
-    setTimeout(() => {
-      this.savingChanges = false;
-      this.changesSaved = true;
-      setTimeout(() => {
-        this.changesSaved = false;
-      }, 3000);
-    }, 1000);
   }
 }

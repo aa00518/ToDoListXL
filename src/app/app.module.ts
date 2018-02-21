@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { HttpClientModule } from '@angular/common/http';
 import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +18,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { AboutComponent } from './components/about/about.component';
 
 import { TodolistService } from './services/todolist.service';
+import { RedditsService } from './services/reddits.service';
 
 @NgModule({
   declarations: [
@@ -30,11 +32,12 @@ import { TodolistService } from './services/todolist.service';
     AppRoutingModule,
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(firebaseConfig, 'todolistxl'),
     AngularFirestoreModule.enablePersistence(),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [TodolistService],
+  providers: [TodolistService, RedditsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
