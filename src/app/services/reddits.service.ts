@@ -7,6 +7,8 @@ import { Observable } from 'rxjs/Observable';
 export class RedditsService {
   protected readonly REDDITS_BASE_URL: string = 'https://www.reddit.com/r';
 
+  public reddit: any;
+
   constructor(private httpClient: HttpClient) { }
 
   getPosts(category, limit): Observable<any> {

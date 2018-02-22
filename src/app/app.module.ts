@@ -19,6 +19,7 @@ import { AboutComponent } from './components/about/about.component';
 
 import { TodolistService } from './services/todolist.service';
 import { RedditsService } from './services/reddits.service';
+import { RedditsDetailComponent } from './components/reddits-detail/reddits-detail.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RedditsService } from './services/reddits.service';
     TodolistComponent,
     RedditsComponent,
     SettingsComponent,
-    AboutComponent
+    AboutComponent,
+    RedditsDetailComponent
   ],
   imports: [
     AppRoutingModule,

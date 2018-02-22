@@ -1,14 +1,19 @@
 <div class="container-fluid">
   <div class="row justify-content-center">
-    <h6>Reddits</h6>
+    <h6>Reddits Detail</h6>
   </div>
-  <div *ngFor="let reddit of reddits.data.children" class="card mb-4">
+  <div class="row mb-4">
+    <button type="button" class="btn btn-primary" (click)="doGoBack()">Go Back</button>
+  </div>
+  <div class="card">
+    <!--<img *ngIf="reddit.data.preview" class="card-img-top" src="{{ reddit.data.preview.images[0].source.url }}">-->
     <img *ngIf="reddit.data.thumbnail" class="card-img-top" src="{{ reddit.data.thumbnail }}">
     <div class="card-body">
       <h5 class="card-title">{{ reddit.data.title }}</h5>
+      <p class="card-text"><strong>Author </strong>{{ reddit.data.author }}</p>
       <p class="card-text text-right"><i class="far fa-thumbs-up"></i> {{ reddit.data.score }}&nbsp;&nbsp;&nbsp;<i class="far fa-comments"></i> {{ reddit.data.num_comments }}</p>
       <div class="text-right">
-        <button type="button" class="btn btn-primary" (click)="doRedditsDetail(reddit)">View</button>
+        <a class="btn btn-primary" target="_blank" href="http://reddit.com/{{ reddit.data.permalink }}" role="button">View on Reddit</a>
       </div>
     </div>
   </div>
