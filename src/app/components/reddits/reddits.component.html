@@ -2,13 +2,15 @@
   <div class="row justify-content-center">
     <h6>Reddits</h6>
   </div>
-  <div *ngFor="let reddit of reddits.data.children" class="card mb-4">
-    <img *ngIf="reddit.data.thumbnail" class="card-img-top" src="{{ reddit.data.thumbnail }}">
-    <div class="card-body">
-      <h5 class="card-title">{{ reddit.data.title }}</h5>
-      <p class="card-text text-right"><i class="far fa-thumbs-up"></i> {{ reddit.data.score }}&nbsp;&nbsp;&nbsp;<i class="far fa-comments"></i> {{ reddit.data.num_comments }}</p>
-      <div class="text-right">
-        <button type="button" class="btn btn-primary" (click)="doRedditsDetail(reddit)">View</button>
+  <div *ngIf="reddits">
+    <div *ngFor="let reddit of reddits.data.children" class="card mb-4">
+      <img *ngIf="reddit.data.thumbnail" class="card-img-top" src="{{ reddit.data.thumbnail }}">
+      <div class="card-body">
+        <h5 class="card-title">{{ reddit.data.title }}</h5>
+        <p class="card-text text-right"><i class="far fa-thumbs-up"></i> {{ reddit.data.score }}&nbsp;&nbsp;&nbsp;<i class="far fa-comments"></i> {{ reddit.data.num_comments }}</p>
+        <div class="text-right">
+          <button type="button" class="btn btn-primary" (click)="doRedditsDetail(reddit)">View</button>
+        </div>
       </div>
     </div>
   </div>
