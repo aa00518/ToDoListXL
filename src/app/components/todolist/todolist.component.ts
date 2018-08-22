@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TodolistService } from '../../services/todolist.service';
+import { Observable } from 'rxjs';
+import { ToDoListItemID } from './../../models/todolistitem.model';
+import { TodolistService } from './../../services/todolist.service';
 
 @Component({
   selector: 'app-todolist',
@@ -8,15 +10,15 @@ import { TodolistService } from '../../services/todolist.service';
 })
 export class TodolistComponent implements OnInit {
   public todoItem: string = "";
-  public snapshot: any;
   public deleteID: string;
   public deleteValue: string;
+  public todoListItems: Observable<ToDoListItemID[]>;
 
   constructor(public toDoList: TodolistService) {
   }
 
   ngOnInit() {
-    this.snapshot = this.toDoList.getToDoListItemsSnapshot();
+    this.todoListItems = this.toDoList.getToDoListItemsSnapshot();
   }
 
   doInsert() {

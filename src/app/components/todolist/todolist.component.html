@@ -8,13 +8,13 @@
       <button type="button" class="btn btn-sm btn-primary" (click)="doInsert()">Add</button>
     </div>
   </div>
-  <div *ngFor="let snap of snapshot | async" class="row mb-2">
+  <div *ngFor="let todoListItem of todoListItems | async" class="row mb-2">
     <div class="col-8">
-      {{ snap.payload.doc._document.data.internalValue.root.value }}
+      {{ todoListItem.todoitem }}
     </div>
     <div class="col-4">
-      <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal" (click)="doDeleteModal(snap.payload.doc.id, snap.payload.doc._document.data.internalValue.root.value)"><i class="fa fa-trash-o"></i> Del</button>
-    </div>  
+      <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal" (click)="doDeleteModal(todoListItem.id, todoListItem.todoitem)"><i class="fa fa-trash-o"></i> Del</button>
+    </div>
   </div>
 </div>
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="modalDeleteLabel" aria-hidden="true">
