@@ -36,4 +36,8 @@ export class TodolistComponent implements OnInit {
   doDelete() {
     this.toDoList.deleteToDoListItem(this.deleteID);
   }
+
+  asdf() {
+    console.log("Hi there dude!");
+  }
 }

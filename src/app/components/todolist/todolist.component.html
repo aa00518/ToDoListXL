@@ -9,7 +9,7 @@
     </div>
   </div>
   <div *ngFor="let todoListItem of todoListItems | async" class="row mb-2">
-    <div class="col-8">
+    <div class="col-8" (click)="asdf()">
       {{ todoListItem.todoitem }}
     </div>
     <div class="col-4">
