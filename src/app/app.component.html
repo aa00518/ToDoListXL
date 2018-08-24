@@ -1,24 +1,25 @@
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+<nav class="navbar fixed-top navbar-dark bg-primary">
   <a class="navbar-brand" href="">To Do List XL</a>
-  <button class="navbar-toggler" type="button" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleMenuState()">
+  <button class="navbar-toggler" type="button" aria-expanded="false" aria-label="Toggle navigation" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" [ngClass]="{ 'show' : isMenuExpanded }">
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" routerLink="/todolist" (click)="toggleMenuState()">To Do List</a>
-      <a class="nav-item nav-link" routerLink="/reddits" (click)="toggleMenuState()">Reddits</a>
-      <a class="nav-item nav-link" routerLink="/settings" (click)="toggleMenuState()">Settings</a>
-      <a class="nav-item nav-link" routerLink="/about" (click)="toggleMenuState()">About</a>
-      <!--
-      <form class="form-inline justify-content-right my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    -->
+      <div data-toggle="collapse" data-target="#collapsibleNavbar">
+        <a class="nav-item nav-link" routerLink="/todolist" routerLinkActive="active">To Do List</a>
+      </div>
+      <div data-toggle="collapse" data-target="#collapsibleNavbar">
+        <a class="nav-item nav-link" routerLink="/reddits" routerLinkActive="active">Reddits</a>
+      </div>
+      <div data-toggle="collapse" data-target="#collapsibleNavbar">
+        <a class="nav-item nav-link" routerLink="/settings" routerLinkActive="active">Settings</a>
+      </div>
+      <div data-toggle="collapse" data-target="#collapsibleNavbar">
+        <a class="nav-item nav-link" routerLink="/about" routerLinkActive="active">About</a>
+      </div>
     </div>
   </div>
 </nav>
-
 <div class="container" style="padding-top: 60px;">
   <router-outlet></router-outlet>
 </div>

@@ -26,6 +26,6 @@ export class AboutComponent implements OnInit {
       setTimeout(() => {
         this.changesSaved = false;
       }, 3000);
-    }, 1000);
+    }, 2000);
   }
 }

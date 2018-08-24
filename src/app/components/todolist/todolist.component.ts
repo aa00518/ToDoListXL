@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ToDoListItemID } from './../../models/todolistitem.model';
 import { TodolistService } from './../../services/todolist.service';
@@ -12,7 +12,10 @@ export class TodolistComponent implements OnInit {
   public todoItem: string = "";
   public deleteID: string;
   public deleteValue: string;
+  public updateID: string;
+  public updateValue: string;
   public todoListItems: Observable<ToDoListItemID[]>;
+  @ViewChild("updateTextBox") updateTextBox: ElementRef;
 
   constructor(public toDoList: TodolistService) {
   }
@@ -37,7 +40,15 @@ export class TodolistComponent implements OnInit {
     this.toDoList.deleteToDoListItem(this.deleteID);
   }
 
-  asdf() {
-    console.log("Hi there dude!");
+  doUpdateModal(updateID: string, updateValue: string) {
+    this.updateID = updateID;
+    this.updateValue = updateValue;
+    setTimeout(() => {
+      this.updateTextBox.nativeElement.focus();
+    }, 550);
+  }
+
+  doUpdate() {
+    this.toDoList.updateToDoListItem(this.updateID, this.updateValue);
   }
 }

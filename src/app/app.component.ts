@@ -7,12 +7,8 @@ import { SwUpdate } from '@angular/service-worker';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'app';
-  
-  public isMenuExpanded: boolean = false;
 
-  constructor(private swUpdate: SwUpdate) {
-  }
+  constructor(private swUpdate: SwUpdate) { }
 
   ngOnInit() {
     if (this.swUpdate.isEnabled) {
@@ -22,9 +18,5 @@ export class AppComponent implements OnInit {
         }
       });
     }
-  }
-
-  toggleMenuState() {
-    this.isMenuExpanded = !this.isMenuExpanded;
   }
 }

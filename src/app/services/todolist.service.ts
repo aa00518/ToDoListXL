@@ -28,4 +28,8 @@ export class TodolistService {
   deleteToDoListItem(id: string) {
     this.todoListCollection.doc(id).delete();
   }
+
+  updateToDoListItem(id: string, value: string) {
+    this.todoListCollection.doc(id).update({ todoitem: value });
+  }
 }

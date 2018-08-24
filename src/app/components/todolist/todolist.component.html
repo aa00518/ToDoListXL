@@ -8,8 +8,11 @@
       <button type="button" class="btn btn-sm btn-primary" (click)="doInsert()">Add</button>
     </div>
   </div>
+  <div *ngIf="!todoListItems" class="row justify-content-center">
+    <img src="assets/images/loading.gif" width="64px" height="64px">
+  </div>
   <div *ngFor="let todoListItem of todoListItems | async" class="row mb-2">
-    <div class="col-8" (click)="asdf()">
+    <div class="col-8" data-toggle="modal" data-target="#updateModal" (click)="doUpdateModal(todoListItem.id, todoListItem.todoitem)">
       {{ todoListItem.todoitem }}
     </div>
     <div class="col-4">
@@ -32,6 +35,30 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">No</button>
         <button type="button" class="btn btn-sm btn-danger" (click)="doDelete()" data-dismiss="modal">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="modalUpdateLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalUpdateLabel">Update {{ updateValue }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row justify-content-center mb-2">
+          Enter new item.
+        </div>
+        <div class="row justify-content-center">
+          <input type="text" name="updateTextBox" #updateTextBox class="form-control form-control-sm" style="width: 200px;" [(ngModel)]="updateValue">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-sm btn-danger" (click)="doUpdate()" data-dismiss="modal">Ok</button>
       </div>
     </div>
   </div>

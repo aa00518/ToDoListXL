@@ -2,6 +2,9 @@
   <div class="row justify-content-center">
     <h6>Reddits</h6>
   </div>
+  <div *ngIf="!reddits" class="row justify-content-center">
+    <img src="assets/images/loading.gif" width="64px" height="64px">
+  </div>
   <div *ngIf="reddits">
     <div *ngFor="let reddit of reddits.data.children" class="card mb-4">
       <img *ngIf="reddit.data.thumbnail" class="card-img-top" src="{{ reddit.data.thumbnail }}">
